@@ -1,4 +1,4 @@
-import './App.css';
+import styled from 'styled-components';
 import Header from './Header.js';
 import Room from './Room.js';
 
@@ -25,7 +25,7 @@ export default function App() {
   ];
 
   return (
-    <main className="App">
+    <AppGrid>
       <Header>Happy Cleaning</Header>
       {rooms.map(({ text, description, isDescriptionVisible, isClean }) => (
         <Room
@@ -36,6 +36,11 @@ export default function App() {
           isClean={isClean}
         />
       ))}
-    </main>
+    </AppGrid>
   );
 }
+
+const AppGrid = styled.main`
+  display: grid;
+  gap: 20px;
+`;
