@@ -13,7 +13,8 @@ export default function Room({
   return (
     <section className="Room">
       <header className="Room__header">
-        {text} <div className={statusClassName}></div>
+        <h2 className="Room__heading">{text}</h2>
+        <div className={statusClassName}></div>
       </header>
       <p hidden={!isDescriptionVisible}>{description}</p>
     </section>

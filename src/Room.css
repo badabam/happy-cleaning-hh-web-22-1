@@ -9,6 +9,10 @@
   align-items: center;
 }
 
+.Room__heading {
+  font-size: 1.1em;
+}
+
 .Room__status {
   width: 20px;
   height: 20px;
