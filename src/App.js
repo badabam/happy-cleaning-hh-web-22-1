@@ -1,10 +1,10 @@
 import './App.css';
 import Header from './Header.js';
 import Room from './Room.js';
-import { useState } from 'react';
+import { useImmer } from 'use-immer';
 
 export default function App() {
-  const [rooms, setRooms] = useState([
+  const [rooms, updateRooms] = useImmer([
     {
       text: 'Küche',
       description: 'Herdplatten nicht vergessen',
@@ -35,11 +35,15 @@ export default function App() {
             toggleStatus={event => {
               event.stopPropagation();
 
-              setRooms([
-                ...rooms.slice(0, index),
-                { ...rooms[index], isClean: !isClean },
-                ...rooms.slice(index + 1),
-              ]);
+              updateRooms(draft => {
+                draft[index].isClean = !isClean;
+              });
+
+              // setRooms([
+              //   ...rooms.slice(0, index),
+              //   { ...rooms[index], isClean: !isClean },
+              //   ...rooms.slice(index + 1),
+              // ]);
             }}
           />
         )
